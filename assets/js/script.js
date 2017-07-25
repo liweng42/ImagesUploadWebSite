@@ -15,8 +15,8 @@ $(function(){
 		uploadFinished:function(i,file,response){
 			$.data(file).addClass('done');
 			// response is the JSON object that post_file.php returns
-			result = JSON.parse(response)
-            uploadSucceed(result.filename);
+			// alert(response.filename);
+            uploadSucceed(response.filename);
 		},
 
     	error: function(err, file) {
@@ -107,7 +107,7 @@ $(function(){
 
 //显示图片上传成功
 var uploadSucceed = function(name){
-    var imageUrl = domain + "/uploads/"+ name;
+    var imageUrl = domain + "/"+ name;
     var wwwUrl = "http://"+ imageUrl;
     $(".succeed").show();
     $(".imgname").find("b").text(name);
